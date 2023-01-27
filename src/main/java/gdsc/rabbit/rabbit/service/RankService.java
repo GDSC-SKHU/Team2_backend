@@ -25,20 +25,16 @@ public class RankService {
             public int compare(Rank o1, Rank o2) {
                 Long firstScore = o1.getScore();
                 Long secondScore = o2.getScore();
-                LocalDateTime date1 = o1.getModifiedDate();
-                LocalDateTime date2 = o2.getModifiedDate();
-
-                if (firstScore > secondScore) {
-                    return -1;
-                } /*else if (firstScore == secondScore) {
-                    if (date1.isBefore(date2)) {
-                        return -1;
-                    } else {
-                        return 1;
-                    }
-                } */else {
-                    return 1;
-                }
+                // LocalDateTime date1 = o1.getModifiedDate();
+                // LocalDateTime date2 = o2.getModifiedDate();
+                //else if (firstScore == secondScore) {
+                //     if (date1.isBefore(date2)) {
+                //         return -1;
+                //     } else {
+                //         return 1;
+                //     }
+                // }
+                return secondScore.compareTo(firstScore);
             }
         });
         return list.stream()

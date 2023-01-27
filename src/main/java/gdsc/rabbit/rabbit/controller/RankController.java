@@ -35,7 +35,7 @@ public class RankController {
             rankService.updateRank(rankDTO);
         }
         catch (Exception e) {
-            return ResponseEntity.ok("실패");
+            return ResponseEntity.badRequest().body("실패");
         }
         return ResponseEntity.ok("성공적으로 덕담 저장");
     }
