@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import static gdsc.rabbit.rabbit.service.RankService.convertString;
+
 @RestController
 @RequiredArgsConstructor
 public class RankController {
@@ -23,7 +25,7 @@ public class RankController {
     // 점수창 보여주기, 기존 점수 및 이름 전달
     @GetMapping("/score")
     public RankDTO showRank(@RequestBody RankDTO rankDTO) {
-        String name = rankDTO.getName();
+        String name = convertString(rankDTO.getName());
         return rankService.showRank(name);
     }
 
@@ -38,4 +40,5 @@ public class RankController {
         }
         return ResponseEntity.ok("성공적으로 덕담 저장");
     }
+
 }
