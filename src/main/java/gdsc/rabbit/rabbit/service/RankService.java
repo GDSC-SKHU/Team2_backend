@@ -30,13 +30,13 @@ public class RankService {
 
                 if (firstScore > secondScore) {
                     return -1;
-                } else if (firstScore == secondScore) {
+                } /*else if (firstScore == secondScore) {
                     if (date1.isBefore(date2)) {
                         return -1;
                     } else {
                         return 1;
                     }
-                } else {
+                } */else {
                     return 1;
                 }
             }
