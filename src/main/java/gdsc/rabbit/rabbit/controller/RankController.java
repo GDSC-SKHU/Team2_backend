@@ -24,9 +24,9 @@ public class RankController {
 
     // 점수창 보여주기, 기존 점수 및 이름 전달
     @GetMapping("/score")
-    public RankDTO showRank(@RequestBody RankDTO rankDTO) {
-        String name = convertString(rankDTO.getName());
-        return rankService.showRank(name);
+    public RankDTO showRank(@RequestParam("name") String name) {
+        System.out.println(convertString(name));
+        return rankService.showRank(convertString(name));
     }
 
     // 점수 및 덕담 갱신
