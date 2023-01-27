@@ -69,7 +69,7 @@ public class RankService {
         StringBuffer sb = new StringBuffer();
         // 글자를 하나하나 탐색한다.
         for (int i = 0; i < val.length(); i++) {
-            // 조합이 \u로 시작하면 6글자를 변환한다. \uxxxx
+            // 조합이 로 시작하면 6글자를 변환한다.
             if ('\\' == val.charAt(i) && 'u' == val.charAt(i + 1)) {
                 // 그 뒤 네글자는 유니코드의 16진수 코드이다. int형으로 바꾸어서 다시 char 타입으로 강제 변환한다.
                 Character r = (char) Integer.parseInt(val.substring(i + 2, i + 6), 16);
