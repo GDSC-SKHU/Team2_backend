@@ -1,6 +1,5 @@
 package gdsc.rabbit.rabbit.service;
 
-import gdsc.rabbit.rabbit.domain.dto.MemberDTO;
 import gdsc.rabbit.rabbit.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
