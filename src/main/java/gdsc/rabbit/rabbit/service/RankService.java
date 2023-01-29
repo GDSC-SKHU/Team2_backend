@@ -23,18 +23,31 @@ public class RankService {
         list.sort(new Comparator<Rank>() {
             @Override
             public int compare(Rank o1, Rank o2) {
+                // 비교할 Rank 객체에서 점수와 최근 수정 날짜를 가져옴
                 Long firstScore = o1.getScore();
                 Long secondScore = o2.getScore();
-                // LocalDateTime date1 = o1.getModifiedDate();
-                // LocalDateTime date2 = o2.getModifiedDate();
-                //else if (firstScore == secondScore) {
-                //     if (date1.isBefore(date2)) {
-                //         return -1;
-                //     } else {
-                //         return 1;
-                //     }
-                // }
-                return secondScore.compareTo(firstScore);
+                LocalDateTime date1 = o1.getModifiedDate();
+                LocalDateTime date2 = o2.getModifiedDate();
+
+                // 점수 기준으로 내림차순
+                if(firstScore > secondScore) {
+                    return -1;
+                }
+                // 점수가 같을 경우 먼저 등록한 날짜 순으로 정렬
+                else if (firstScore.equals(secondScore)) {
+                     if (date1.isBefore(date2)) {
+                         return -1;
+                     }
+                     else if(date1.isEqual(date2)){
+                         return 0;
+                     }
+                     else {
+                         return 1;
+                     }
+                }
+                else {
+                    return 1;
+                }
             }
         });
         return list.stream()
